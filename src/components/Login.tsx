@@ -8,8 +8,8 @@ const Login = () => {
 
   return (
     <div className="container-fluid">
-      <div className="row">
-        <Card style={{ height: "20vh", background: "#25D366" }}>
+      <div className="row ">
+        <div style={{ height: "20vh", background: "#075E55" }}>
           <div className="d-flex">
             <img
               src="whatsapp.png"
@@ -19,12 +19,10 @@ const Login = () => {
             />
             <span className="mt-4 text-white"> WHATSAPP WEB </span>
           </div>
-        </Card>
-        <Card style={{ height: "80vh" }}>
-          <p>i am down</p>
-        </Card>
+        </div>
+       
       </div>
-      {/* <div className="row align-items-center vh-100">
+      <div className="row vh-100 " style={{ position: "absolute", zIndex: "1", marginTop: "-25px", width: "100%" }} >
         <div className="col-md-6 mx-auto">
           <Card className="p-5 shadow-lg">
             <Form>
@@ -52,7 +50,7 @@ const Login = () => {
               </Form.Group>
               <div className="d-grid gap-2">
                 <Button
-                  style={{ backgroundColor: "#25D366", borderColor: "#25D366" }}
+                  style={{ backgroundColor: "#075E55", borderColor: "#075E55" }}
                   type="submit"
                 >
                   Login
@@ -87,7 +85,7 @@ const Login = () => {
             </Form>
           </Card>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
