@@ -6,23 +6,24 @@ import {FiSearch} from "react-icons/fi"
 import {useState, useEffect} from "react";
 import { useDispatch} from "react-redux";
 import { selectUserAction } from "../redux/actions";
+import {User} from '../types'
 import axios from 'axios'
 
-interface IUser {
-  _id: number
-  username: string
-  email: string
-  avatar: string
+// interface IUser {
+//   _id: number
+//   username: string
+//   email: string
+//   avatar: string
  
-}
+// }
 
 const Sidebar = () => {
   const dispatch = useDispatch();
 
 
 
-  const [user, setUser] = useState<IUser>(null || {} as IUser)
-  const [allUsers, setAllUsers] = useState<IUser[]>([])
+  const [user, setUser] = useState<User>(null || {} as User)
+  const [allUsers, setAllUsers] = useState<User[]>([])
  
   const fetchUser = async () => {
     const res = await axios.get('http://localhost:3001/users/me',{ headers: {
@@ -80,7 +81,7 @@ const Sidebar = () => {
             </Col>
             <Col sm={10} className="mx-3">
            
-            {/* <p onClick={userSelected()} >{userChat.username}</p> */}
+           
             <p onClick={() => dispatch(selectUserAction(userChat))} >{userChat.username}</p>
             </Col>
             </div>
