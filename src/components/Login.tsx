@@ -1,10 +1,34 @@
 import { Form, Button, Card } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3001/users/login", {
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.accessToken);
+        navigate("/home");
+        console.log(res.data);
+      }
+      )
+      .catch((err) => {
+        console.log(err);
+      }
+      )};
+
 
   return (
     <div className="container-fluid">
@@ -25,7 +49,7 @@ const Login = () => {
       <div className="row vh-100 " style={{ position: "absolute", zIndex: "1", marginTop: "-25px", width: "100%" }} >
         <div className="col-md-6 mx-auto">
           <Card className="p-5 shadow-lg">
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
