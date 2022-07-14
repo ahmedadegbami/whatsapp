@@ -127,9 +127,9 @@ const Home = () => {
       </Row>
       <Row className="ml-1">
      
-   <Form onSubmit={handleUsernameSubmit} className="d-flex mt-2">
+   <Form onSubmit={handleUsernameSubmit} className="d-flex my-2">
             <FormControl
-              placeholder='Insert your username'
+              placeholder='Insert your username to see who is online'
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               
@@ -140,7 +140,7 @@ const Home = () => {
                 ?
                 <Button
                   className="ml-2"
-                  variant={room === "earth" ? "primary" : "danger"}
+                  variant={room === "earth" ? "success" : "dark"}
                   onClick={() => setRoom(room === "earth" ? "mars" : "earth")}
                 >Room</Button>
                 :
